@@ -15,6 +15,11 @@ const resolvers = {
     addCustomer: (_, args) => {
       return prisma.customer.create({ data: args });
     },
+    deleteCustomer: (_, { id }) => {
+      return prisma.customer.delete({
+        where: { id }, // specify the customer ID for update
+      });
+    },
     patchCustomer: (_, { id, email, phone, address, name }) => {
       return prisma.customer.update({
         where: { id }, // specify the customer ID for update
@@ -29,10 +34,11 @@ const typeDefs = `#graphql
 
   type Customer {
     id: Int
-    name: String!
+    password: String!
+    name: String
     email: String!
-    phone: String!
-    address: String!
+    phone: String
+    address: String
     orders: [Order!]
   }
   
@@ -73,11 +79,16 @@ const typeDefs = `#graphql
 
   type Mutation {
     addCustomer(
+        password:String!
         name: String!
         email: String!
         phone: String!
         address: String!
     ): Customer
+
+    deleteCustomer(
+      id: Int!
+    ):Customer
 
     patchCustomer(
         id: Int!
