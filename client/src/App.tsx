@@ -1,12 +1,17 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-
+import Navbar from "./Containers/Navbar";
+import PublicRoute from "./Layouts/PublicRoute";
+import LayoutPublic from "./Layouts/LayoutPublic";
+import Pages, { Paths } from "./Pages";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p className="underline"> fml</p>
-      </header>
-    </div>
+    <Routes>
+      <Route
+        path={Paths.LANDING}
+        element={<PublicRoute layout={LayoutPublic} page={<Pages.Landing />} />}
+      />
+    </Routes>
   );
 }
 

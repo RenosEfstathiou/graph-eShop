@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
-    "start": "npm run compile && nodemon ./dist/index.js"
+    "start": "npm run compile && nodemon ./dist/index.js",
+    "prisma:migration": "npx prisma db push "
   },
   "keywords": [],
   "author": "",
