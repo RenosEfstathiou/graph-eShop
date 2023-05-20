@@ -1,0 +1,17 @@
+version: "3"
+services:
+  eshopaki-db:
+    container_name: eshopaki-db
+    image: mysql:5.7
+    restart: always
+    environment:
+      MYSQL_DATABASE: "eshopaki"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "password"
+      MYSQL_ROOT_PASSWORD: "password"
+    ports:
+      - "3306:3306"
+    volumes:
+      - eshopaki-db-storage:/var/lib/mysql
+volumes:
+  eshopaki-db-storage:
