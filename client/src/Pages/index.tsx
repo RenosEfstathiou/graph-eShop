@@ -1,11 +1,14 @@
 import Landing from "./Landing";
+import MobilePhones from "./MobilePhones";
 
 const Pages = {
   Landing,
+  MobilePhones,
 };
 
 export default Pages;
 
-export const Paths = {
-  LANDING: "/",
-};
+export enum Paths {
+  LANDING = "/",
+  MOBILE_PHONES = "/mobile-phones",
+}

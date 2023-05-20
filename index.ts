@@ -10,10 +10,17 @@ const resolvers = {
     customers: () => {
       return prisma.customer.findMany();
     },
+    products: () => {
+      return prisma.product.findMany();
+    },
   },
   Mutation: {
     addCustomer: (_, args) => {
       return prisma.customer.create({ data: args });
+    },
+
+    addProduct: (_, args) => {
+      return prisma.product.create({ data: args });
     },
     deleteCustomer: (_, { id }) => {
       return prisma.customer.delete({
@@ -47,6 +54,7 @@ const typeDefs = `#graphql
     name: String!
     description: String!
     price: Float!
+    image: String!
     quantity: Int!
     orderItems: [OrderItem!]!
   }
@@ -75,6 +83,7 @@ const typeDefs = `#graphql
   # case, the "books" query returns an array of zero or more Books (defined above).
   type Query {
     customers: [Customer]
+    products: [Product]
   }
 
   type Mutation {
@@ -85,6 +94,14 @@ const typeDefs = `#graphql
         phone: String!
         address: String!
     ): Customer
+
+      addProduct(
+      name: String!
+      description: String!
+      price: Float!
+      image: String!
+      quantity: Int!
+    ): Product
 
     deleteCustomer(
       id: Int!
