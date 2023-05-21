@@ -8,7 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./app/store";
-import { client } from "./app/api";
+import client from "./app/api";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

@@ -1,5 +1,5 @@
 import gql from "graphql-tag";
-import { client } from "../../app/api";
+import client from "../../app/api";
 import {
   GET_PRODUCTS,
   GET_PRODUCT_BY_ID,
@@ -7,19 +7,15 @@ import {
 
 export default function Cart() {
   //   const { data } = client.cache.read({ query: GET_PRODUCTS });
-  const { product } = client.readQuery({
-    query: gql`
-      query ReadProduct($id: Int!) {
-        product(id: $id) {
-          id
-        }
-      }
-    `,
+  const products = client.readQuery({
+    query: GET_PRODUCTS,
+    // Provide any required variables in this object.
+    // Variables of mismatched types will return `null`.
     variables: {
-      id: 5,
+      id: 1,
     },
   });
-  console.log("data: ", product);
+  console.log("data: ", products);
 
   return <div>Cart</div>;
 }
