@@ -6,9 +6,9 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "compile": "tsc",
-        "start": "npm run compile && nodemon ./dist/index.js",
+        "build:run": "npm run compile && nodemon ./dist/index.js",
         "prisma:migration": "npx prisma db push ",
-        "db:up": "docker-compose  up -d --build",
+        "db:update": "docker-compose  up -d --build",
         "dev": "nodemon -I --exec node --experimental-specifier-resolution=node  --loader ts-node/esm ./index.ts"
     },
     "keywords": [],
@@ -25,6 +25,7 @@
     "dependencies": {
         "@apollo/server": "^4.7.1",
         "@prisma/client": "^4.14.1",
+        "dotenv": "^16.0.3",
         "graphql": "^16.6.0",
         "nodemon": "^2.0.22"
     },
