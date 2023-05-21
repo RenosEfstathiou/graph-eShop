@@ -2,11 +2,13 @@ import { FC, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "../../Components/Button/Button";
 import { Paths } from "../../Pages";
+import { useSelector } from "../../app/store";
+import { selectProductIds } from "../../entities/cart";
 
 const Navbar: FC = () => {
   const navigate = useNavigate();
   const [navbar, setNavbar] = useState(false);
-
+  const procutsIds = useSelector(selectProductIds);
   const handleButton = () => {
     setNavbar(!navbar);
   };
@@ -95,6 +97,11 @@ const Navbar: FC = () => {
                   </li>
                   <li className="text-white hover:text-indigo-200">
                     <Link to="/signup">SignIn</Link>
+                  </li>
+                  <li className="text-white hover:text-indigo-200">
+                    <Link
+                      to={Paths.CART}
+                    >{`Cart ( ${procutsIds.length} ) `}</Link>
                   </li>
                 </>
               )}

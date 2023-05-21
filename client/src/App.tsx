@@ -17,6 +17,11 @@ function App() {
         path={Paths.LANDING}
         element={<PublicRoute layout={LayoutPublic} page={<Pages.Landing />} />}
       />
+
+      <Route
+        path={Paths.CART}
+        element={<PublicRoute layout={LayoutPublic} page={<Pages.Cart />} />}
+      />
     </Routes>
   );
 }
