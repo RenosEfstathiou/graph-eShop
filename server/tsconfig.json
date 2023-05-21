@@ -9,10 +9,11 @@
         "esModuleInterop": true,
         "types": ["node"],
         "baseUrl": "./",
-        "paths": {
-            "@/*": ["*"]
-        },
         "rootDir": ".",
-        "sourceMap": true
+        "sourceMap": true,
+        "paths": {
+            "@client/*": ["../client/*"],
+            "@server/*": ["./*"]
+        }
     }
 }

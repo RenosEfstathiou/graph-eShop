@@ -1,6 +1,6 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
-import { schema } from "@/schema";
+import { schema } from "./schema";
 import { resolvers } from "./resolvers";
 
 const server = new ApolloServer({
