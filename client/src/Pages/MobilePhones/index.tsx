@@ -1,33 +1,21 @@
-import { useEffect } from "react";
+import { useQuery } from "@apollo/client";
 import ProductCard from "./Components/ProductCard";
-import { useDispatch, useSelector } from "../../app/store";
-import { fetchProductsAsync } from "../../entities/products/asyncThunks";
-import { selectProducts, selectProductsStatus } from "../../entities/products";
-import { APIStatuses } from "../../model/Common";
+import { GET_PRODUCTS } from "../../queries/products";
+import { Product } from "../../model/Product";
 
 export default function MobilePhones() {
-  const dispatch = useDispatch();
-  const products = useSelector(selectProducts);
-  const productsStatus = useSelector(selectProductsStatus);
-  useEffect(() => {
-    if (productsStatus === APIStatuses.Idle) {
-      console.log("productsStatus", productsStatus);
-      dispatch(fetchProductsAsync());
-    }
-  }, [dispatch, productsStatus]);
+  const { error, loading, data } = useQuery(GET_PRODUCTS);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error : {error.message}</p>;
+
   return (
     <>
-      {productsStatus === APIStatuses.Pending && <p>Loading...</p>}
-      {productsStatus === APIStatuses.Fulfilled && (
-        <div className=" gap-6 p-2 md:gap-4.8  grid md:grid-cols-6  ">
-          {products.map((p) => (
-            <ProductCard product={p} />
-          ))}
-        </div>
-      )}
-      {productsStatus === APIStatuses.Rejected && (
-        <p>Error occurred while fetching data.</p>
-      )}
+      <div className="gap-6 p-2 md:gap-4 grid md:grid-cols-6  ">
+        {data.products.map((p: Product) => (
+          <ProductCard product={p} />
+        ))}
+      </div>
     </>
   );
 }

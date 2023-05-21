@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Navbar from "./Containers/Navbar";
+
 import PublicRoute from "./Layouts/PublicRoute";
 import LayoutPublic from "./Layouts/LayoutPublic";
 import Pages, { Paths } from "./Pages";
