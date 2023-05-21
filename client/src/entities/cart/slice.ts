@@ -3,11 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
 export interface IProductsSliceInitialState {
-  productsIds: Array<{ id: number; price: number }>;
+  products: Array<{ id: number; price: number }>;
 }
 
 const initialState: IProductsSliceInitialState = {
-  productsIds: [],
+  products: [],
 };
 
 export const cartSlice = createSlice({
@@ -15,7 +15,7 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addProduct: (state, { payload }) => {
-      state.productsIds = [...state.productsIds, payload];
+      state.products = [...state.products, payload];
     },
   },
 });
@@ -29,7 +29,10 @@ export const { addProduct } = cartSlice.actions;
  * export selectors
  */
 
-export const selectProductIds = ({ cart }: RootState) => cart.productsIds;
+export const selectCartProducts = ({ cart }: RootState) => cart.products;
+
+export const selectCartProductIds = ({ cart }: RootState) =>
+  cart.products.map((product) => product.id);
 
 /**
  * export reducer

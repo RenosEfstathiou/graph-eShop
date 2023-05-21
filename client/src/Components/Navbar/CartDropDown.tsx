@@ -1,13 +1,13 @@
 import React from "react";
 import { Badge, Button, Card, Dropdown, Indicator } from "react-daisyui";
 import { useSelector } from "react-redux";
-import { selectProductIds } from "../../entities/cart";
+import { selectCartProductIds, selectCartProducts } from "../../entities/cart";
 import { useNavigate } from "react-router-dom";
 
 type Props = {};
 
 const CartDropDown = (props: Props) => {
-  const cartItems = useSelector(selectProductIds);
+  const cartItems = useSelector(selectCartProducts);
 
   const totalPrice = cartItems.reduce((accumulator, currentItem) => {
     return accumulator + currentItem.price;
