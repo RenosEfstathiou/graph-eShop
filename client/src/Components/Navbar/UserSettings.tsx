@@ -7,7 +7,7 @@ const UserSettings = (props: Props) => {
     <Dropdown vertical={"bottom"}>
       <Button color="ghost" className="avatar" shape="circle">
         <div className="w-10 rounded-full">
-          <img src="https://api.lorem.space/image/face?hash=33791" />
+          <img src="https://img-s-msn-com.akamaized.net/tenant/amp/entityid/BBWcTKT?w=300&h=157&q=60&m=6&f=jpg&u=t" />
         </div>
       </Button>
       <Dropdown.Menu className="w-52 menu-compact right-0">
