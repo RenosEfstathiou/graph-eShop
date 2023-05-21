@@ -1,4 +1,4 @@
-import { Product } from "@prisma/client";
+import { Product } from "../../../model/Product";
 
 export interface Props {
   product: Product;

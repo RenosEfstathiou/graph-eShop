@@ -1,0 +1,37 @@
+{
+    "name": "graph-server",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "compile": "tsc",
+        "start": "npm run compile && nodemon ./dist/index.js",
+        "prisma:migration": "npx prisma db push ",
+        "db:up": "docker-compose  up -d --build",
+        "dev": "nodemon -I --exec node --experimental-specifier-resolution=node  --loader ts-node/esm ./index.ts"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@types/node": "^20.2.1",
+        "prettier": "^2.8.8",
+        "prisma": "^4.14.1",
+        "ts-node": "^10.9.1",
+        "ts-node-dev": "^2.0.0",
+        "typescript": "^5.0.4"
+    },
+    "dependencies": {
+        "@apollo/server": "^4.7.1",
+        "@prisma/client": "^4.14.1",
+        "graphql": "^16.6.0",
+        "nodemon": "^2.0.22"
+    },
+    "prettier": {
+        "semi": true,
+        "tabWidth": 4,
+        "trailingComma": "all",
+        "printWidth": 80
+    }
+}

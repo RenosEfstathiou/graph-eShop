@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 import { RootState } from "../../app/store";
-import { Product } from "@prisma/client";
 import { APIStatuses, IFetchError } from "../../model/Common";
 import { fetchProductsAsync } from "./asyncThunks";
+import { Product } from "../../model/Product";
 
 export interface IProductsSliceInitialState {
   products: Array<Product>;
