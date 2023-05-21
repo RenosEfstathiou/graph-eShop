@@ -21,22 +21,20 @@ export default function ProductCard({ product }: Props) {
         className="w-full h-72 object-fill"
       />
 
-      <Card.Body>
+      <Card.Body className="gap-2 md:gap-4">
         <Card.Title tag="h2">{product.name}</Card.Title>
-
         <span className="text-xl font-bold text-gray-900 dark:text-white">
           {`${product.price}€`}
         </span>
-
         <p>{product.description}</p>
+        <p className="font-semibold">Rate this product:</p>
 
         <Ratings />
-
-        <Card.Actions className="justify-end">
+        <Card.Actions className="flex-1">
           <Button
             color="primary"
             onClick={() => handleAddToCart(product.id, product.price)}
-            className="w-24 sm:w-28 md:w-32"
+            className="w-full"
           >
             Add to Cart
           </Button>

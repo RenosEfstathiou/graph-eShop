@@ -11,7 +11,7 @@ const LayoutPublic = ({ children }: { children: ReactNode }) => {
   return (
     <div>
       <Navbar />
-      <main> {children}</main>
+      <main className="px-12">{children}</main>
     </div>
   );
 };

@@ -10,15 +10,15 @@ export default function MobilePhones() {
   if (error) return <p>Error : {error.message}</p>;
 
   return (
-    <div className="px-12 ">
+    <>
       <h3 className="mb-2">
         Results: {data?.products ? data.products.length : 0}
       </h3>
-      <div className="md:gap-4 gap-2  grid  md:grid-cols-4 sm:grid-cols-3 lg:grid-cols-5 ">
+      <div className="md:gap-4 gap-2 grid md:grid-cols-4 sm:grid-cols-3 lg:grid-cols-5 ">
         {data.products.map((p: Product) => (
           <ProductCard product={p} key={p.id} />
         ))}
       </div>
-    </div>
+    </>
   );
 }
