@@ -13,12 +13,15 @@ export const GET_PRODUCTS = gql`
   }
 `;
 
-export const GET_PRODUCT_BY_ID = gql`
-  query GetProductById($id: ID!) {
-    products(id: $id) {
+export const GET_PRODUCTS_BY_IDS = gql`
+  query GetProductsByIds($ids: [Int!]!) {
+    productsByIds(ids: $ids) {
       id
-      text
-      completed
+      name
+      description
+      price
+      image
+      quantity
     }
   }
 `;

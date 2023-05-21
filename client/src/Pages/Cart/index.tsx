@@ -1,21 +1,18 @@
 import gql from "graphql-tag";
 import client from "../../app/api";
-import {
-  GET_PRODUCTS,
-  GET_PRODUCT_BY_ID,
-} from "../../graphQL/queries/products";
+import { GET_PRODUCTS_BY_IDS } from "../../graphQL/queries/products";
+import { useSelector } from "react-redux";
+import { selectProductIds } from "../../entities/cart";
+import { useQuery } from "@apollo/client";
 
 export default function Cart() {
-  //   const { data } = client.cache.read({ query: GET_PRODUCTS });
-  const products = client.readQuery({
-    query: GET_PRODUCTS,
-    // Provide any required variables in this object.
-    // Variables of mismatched types will return `null`.
+  const productIds = useSelector(selectProductIds);
+
+  const { error, loading, data } = useQuery(GET_PRODUCTS_BY_IDS, {
     variables: {
-      id: 1,
+      ids: productIds,
     },
   });
-  console.log("data: ", products);
-
+  console.log(data);
   return <div>Cart</div>;
 }
