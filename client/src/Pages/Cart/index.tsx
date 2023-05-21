@@ -1,5 +1,3 @@
-import gql from "graphql-tag";
-import client from "../../app/api";
 import { GET_PRODUCTS_BY_IDS } from "../../graphQL/queries/products";
 import { useSelector } from "react-redux";
 import { selectProductIds } from "../../entities/cart";
@@ -13,6 +11,7 @@ export default function Cart() {
       ids: productIds,
     },
   });
+
   console.log(data);
   return <div>Cart</div>;
 }

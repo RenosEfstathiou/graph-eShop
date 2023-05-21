@@ -12,7 +12,6 @@
     "@types/node": "^16.18.31",
     "@types/react": "^18.2.6",
     "@types/react-dom": "^18.2.4",
-    "apollo3-cache-persist": "^0.14.1",
     "axios": "^1.4.0",
     "eslint": "^8.41.0",
     "graphql": "^16.6.0",
