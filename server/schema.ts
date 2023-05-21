@@ -32,6 +32,8 @@ export const schema = `#graphql
   type Query {
     customers: [Customer]
     products: [Product]
+    productById(id: Int!): Product
+    productsByIds(ids: [Int!]!): [Product!]!
   }
 
   type Mutation {

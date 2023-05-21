@@ -11,6 +11,12 @@ export const resolvers = {
         products: () => {
             return prisma.product.findMany();
         },
+        productById: async (parent: any, { id }: any) => {
+            return prisma.product.findUnique({ where: { id } });
+        },
+        productsByIds: async (parent: any, { ids }: any) => {
+            return prisma.product.findMany({ where: { id: { in: ids } } });
+        },
     },
     Mutation: {
         addCustomer: (_: any, args: any) => {

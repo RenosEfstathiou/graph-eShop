@@ -14,8 +14,21 @@ export const GET_PRODUCTS = gql`
 `;
 
 export const GET_PRODUCTS_BY_IDS = gql`
-  query GetProductsByIds($id: [Int!]!) {
-    productsByIds(id: $id) {
+  query GetProductsByIds($ids: [Int!]!) {
+    productsByIds(ids: $ids) {
+      id
+      name
+      description
+      price
+      image
+      quantity
+    }
+  }
+`;
+
+export const GET_PRODUCT_BY_ID = gql`
+  query GetProductByIds($id: Int!) {
+    productById(id: $id) {
       id
       name
       description
