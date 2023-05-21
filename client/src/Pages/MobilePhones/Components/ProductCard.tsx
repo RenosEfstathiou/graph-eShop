@@ -1,100 +1,47 @@
+import { Button, Card } from "react-daisyui";
 import { useDispatch } from "../../../app/store";
 import { addProduct } from "../../../entities/cart";
 import { Product } from "../../../model/Product";
+import Ratings from "../../../Components/Procucts/Ratings";
 
 export interface Props {
   product: Product;
 }
 export default function ProductCard({ product }: Props) {
   const dispatch = useDispatch();
-  const handleAddToCart = (id: number) => {
-    dispatch(addProduct(id));
+  const handleAddToCart = (id: number, price: number) => {
+    dispatch(addProduct({ id, price }));
   };
 
   return (
-    <div className="bg-white border border-gray-300 rounded-lg shadow-md container-name-product grid grid-cols-1 gap-8 text-base md:text-lg transition-all duration-250 ease-in-out hover:border-blue-500 hover:shadow-lg">
-      <div className="w-full max-w-sm  border-gray-200 rounded-lg shadow dark:bg-gray-800 ">
-        <a href="#">
-          <img
-            className=" bg-white p-8 rounded-t-lg"
-            src={product.image}
-            alt={product.name}
-          />
-        </a>
-        <div className="px-5 pb-5">
-          <a href="#">
-            <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-              {product.name}
-            </h5>
-          </a>
-          <div className="flex items-center mt-2.5 mb-5">
-            <svg
-              aria-hidden="true"
-              className="w-5 h-5 text-yellow-300"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>First star</title>
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-            </svg>
-            <svg
-              aria-hidden="true"
-              className="w-5 h-5 text-yellow-300"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Second star</title>
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-            </svg>
-            <svg
-              aria-hidden="true"
-              className="w-5 h-5 text-yellow-300"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Third star</title>
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-            </svg>
-            <svg
-              aria-hidden="true"
-              className="w-5 h-5 text-yellow-300"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Fourth star</title>
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-            </svg>
-            <svg
-              aria-hidden="true"
-              className="w-5 h-5 text-yellow-300"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>Fifth star</title>
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-            </svg>
-            <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
-              5.0
-            </span>
-          </div>
-          <div className="flex items-center justify-between">
-            <span className="text-3xl font-bold text-gray-900 dark:text-white">
-              {`${product.price}€`}
-            </span>
-            <button
-              onClick={() => handleAddToCart(product.id)}
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            >
-              Add to cart
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Card>
+      <Card.Image
+        src={product.image}
+        alt={product.name}
+        className="w-full h-72 object-fill"
+      />
+
+      <Card.Body>
+        <Card.Title tag="h2">{product.name}</Card.Title>
+
+        <span className="text-xl font-bold text-gray-900 dark:text-white">
+          {`${product.price}€`}
+        </span>
+
+        <p>{product.description}</p>
+
+        <Ratings />
+
+        <Card.Actions className="justify-end">
+          <Button
+            color="primary"
+            onClick={() => handleAddToCart(product.id, product.price)}
+            className="w-24 sm:w-28 md:w-32"
+          >
+            Add to Cart
+          </Button>
+        </Card.Actions>
+      </Card.Body>
+    </Card>
   );
 }

@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../../app/store";
 
 export interface IProductsSliceInitialState {
-  productsIds: Array<number>;
+  productsIds: Array<{ id: number; price: number }>;
 }
 
 const initialState: IProductsSliceInitialState = {
