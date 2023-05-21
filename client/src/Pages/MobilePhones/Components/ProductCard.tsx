@@ -14,7 +14,7 @@ export default function ProductCard({ product }: Props) {
   };
 
   return (
-    <Card>
+    <Card className="hover:shadow-md hover:shadow-primary">
       <Card.Image
         src={product.image}
         alt={product.name}
