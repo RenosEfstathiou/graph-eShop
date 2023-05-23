@@ -21,7 +21,7 @@ export const resolvers = {
     },
     Mutation: {
         register: async (_: any, args: any) => UserRegistration(_, args),
-        login: async (_: any, args: any) => UserLoginWithEmail(_, args),
+        loginWithEmail: async (_: any, args: any) => UserLoginWithEmail(_, args),
         addCustomer: (_: any, args: any) => {
             return prisma.customer.create({ data: args });
         },
