@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/prefer-default-export
 import { PrismaClient } from "@prisma/client";
-import { Registration } from "./services/auth";
+import { UserLoginWithEmail, UserRegistration } from "./services/auth";
 
 const prisma = new PrismaClient();
 
@@ -20,7 +20,8 @@ export const resolvers = {
         },
     },
     Mutation: {
-        register: async (_: any, args: any) => Registration(_, args),
+        register: async (_: any, args: any) => UserRegistration(_, args),
+        login: async (_: any, args: any) => UserLoginWithEmail(_, args),
         addCustomer: (_: any, args: any) => {
             return prisma.customer.create({ data: args });
         },
