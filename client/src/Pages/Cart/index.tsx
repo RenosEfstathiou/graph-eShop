@@ -20,7 +20,7 @@ export default function Cart() {
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error : {error.message}</p>;
 
-  console.log(cartProductIds);
+  console.log("cartProductIds", cartProductIds);
   return (
     <div>
       <h1 className="text-3xl fon">Cart</h1>
