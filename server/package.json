@@ -10,7 +10,8 @@
         "prisma:migration": "npx prisma db push ",
         "prisma:migrate:dev": "npx prisma migrate dev",
         "db:update": "docker-compose  up -d --build",
-        "dev": "nodemon -I --exec node --experimental-specifier-resolution=node  --loader ts-node/esm ./index.ts"
+        "dev": "nodemon -I --exec node --experimental-specifier-resolution=node  --loader ts-node/esm ./index.ts",
+        "seed": "esbuild prisma/seed.ts --outfile=node_modules/tmp-seed.cjs --bundle --format=cjs --external:prisma --external:@prisma/client && node node_modules/tmp-seed.cjs --preview-feature"
     },
     "keywords": [],
     "author": "",
@@ -18,7 +19,7 @@
     "devDependencies": {
         "@types/bcrypt": "^5.0.0",
         "@types/jsonwebtoken": "^9.0.2",
-        "@types/node": "^20.2.1",
+        "@types/node": "^20.2.3",
         "prettier": "^2.8.8",
         "prisma": "^4.14.1",
         "ts-node": "^10.9.1",
@@ -30,6 +31,7 @@
         "@prisma/client": "^4.14.1",
         "bcrypt": "^5.1.0",
         "dotenv": "^16.0.3",
+        "esbuild": "^0.17.19",
         "graphql": "^16.6.0",
         "jsonwebtoken": "^9.0.0",
         "nodemon": "^2.0.22"
